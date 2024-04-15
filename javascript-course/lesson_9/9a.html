@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button>9a</button>
+    <button class="js-9b-button" onclick="
+        button9a();
+    ">9b</button>
+
+    <script>
+        console.log(document.querySelector('button'));
+
+        function button9a () {
+            const buttonElement = document.querySelector('.js-9b-button')
+            if (buttonElement.innerText === '9b') {
+                buttonElement.innerHTML = '9b done!';
+            } else {
+                buttonElement.innerHTML = '9b';
+            }
+        }
+    </script>
+</body>
+</html>

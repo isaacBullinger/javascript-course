@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>11l</title>
+</head>
+<body>
+    <script>
+        console.log(minMax([1, -3, 5]));
+        console.log(minMax([-2, 3, -5, 7, 10]));
+
+        console.log(minMax([]));
+        console.log(minMax([3]));
+
+        function minMax(array) {
+            const values = {
+                min: null,
+                max: null
+            }
+
+            for (let i = 0; i < array.length; i++) {
+                if (values.min === null || array[i] < values.min) {
+                    values.min = array[i];
+                }
+
+                if (values.min === null || array[i] > values.max) {
+                    values.max = array[i];
+                }
+            }
+
+            return values;
+        }
+    </script>
+</body>
+</html>

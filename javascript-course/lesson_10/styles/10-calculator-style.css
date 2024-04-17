@@ -1,0 +1,27 @@
+body {
+    background-color: black;
+    font-family: Arial;
+}
+
+p {
+    color: white;
+    font-size: 40px;
+}
+
+button {
+    font-size: 30px;
+    background-color: #333333;
+    color: white;
+    border: none;
+    height: 60px;
+    width: 60px;
+    border-radius: 30px;
+}
+
+.operators {
+    background-color: #a84949;
+}
+
+.clear {
+    font-size: 15px;
+}

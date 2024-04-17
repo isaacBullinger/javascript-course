@@ -6,6 +6,7 @@ body {
 p {
     color: white;
     font-size: 40px;
+    margin: 15px 15px;
 }
 
 button {

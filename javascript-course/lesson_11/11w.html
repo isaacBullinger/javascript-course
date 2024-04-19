@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>11w</title>
+</head>
+<body>
+    <script>
+        console.log(unique(['green', 'red', 'blue', 'red']));
+        console.log(unique(['red', 'green', 'green', 'red']));
+
+        function findIndex (array, word) {
+            let index = -1;
+
+            for (let i = 0; i < array.length; i++) {
+                if (array[i] === word) {
+                    index = i;
+                }
+            }
+
+            return index;
+        }
+
+        function unique(array) {
+            const newArray = [];
+
+            for (let i = 0; i < array.length; i++) {
+                const word = array[i];
+                const isCopy = findIndex(newArray, word);
+
+                if (isCopy === -1) {
+                    newArray.push(word);
+                }
+            }
+            return newArray;
+        }
+    </script>
+</body>
+</html>

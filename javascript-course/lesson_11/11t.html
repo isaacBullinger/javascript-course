@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>11r</title>
+</head>
+<body>
+    <script>
+        const foods = ['egg', 'apple', 'egg', 'egg', 'ham'];
+        console.log(foods);
+        removeEgg(foods);
+        console.log(foods);
+
+        function removeEgg (foods) {
+            const newFoods = [];
+            let eggCount = 0;
+            const foodsCopy = foods.slice();
+            const reversedFoods = foodsCopy.reverse();
+
+            for (let i = 0; i < reversedFoods.length; i++) {
+                if (reversedFoods[i] === 'egg' && eggCount < 2) {
+                    eggCount++;
+                    continue;
+                } else {
+                    newFoods.push(reversedFoods[i]);
+                }
+            }
+            console.log(newFoods.reverse());
+        }
+    </script>    
+</body>
+</html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title class="js-title">App</title>
+</head>
+<body>
+    <script>
+        const titleText = document.querySelector('.js-title').textContent;
+        const title = document.querySelector('.js-title');
+
+        changeTitle('(2) New messages');
+
+        function changeTitle (text) {
+            setInterval(function() {
+                if (document.title === titleText) {
+                    title.innerHTML = text;
+                } else {
+                    title.innerHTML = titleText;
+                }
+            }, 1000);
+        }
+    </script>
+</body>
+</html>

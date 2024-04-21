@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>12e</title>
+</head>
+<body>
+    <button onclick="
+        display('Added');
+        ">Add to cart</button>
+
+    <p class="js-message"></p>
+
+    <script>
+        function display(message) {
+            const text = document.querySelector('.js-message');
+            // const defaultText = document.querySelector('.js-message').textContent;
+
+            text.innerHTML = message;
+
+            setTimeout(function() {
+                text.innerHTML = '';
+            }, 2000);
+        }
+    </script>
+</body>
+</html>

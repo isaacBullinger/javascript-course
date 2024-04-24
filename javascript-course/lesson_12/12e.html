@@ -6,20 +6,23 @@
     <title>12e</title>
 </head>
 <body>
-    <button onclick="
-        display('Added');
-        ">Add to cart</button>
+    <button class="js-button">
+        Add to cart
+    </button>
 
     <p class="js-message"></p>
 
     <script>
+        document.querySelector('.js-button')
+            .addEventListener('click', () => display('Added'));
+
         function display(message) {
             const text = document.querySelector('.js-message');
             // const defaultText = document.querySelector('.js-message').textContent;
 
             text.innerHTML = message;
 
-            setTimeout(function() {
+            setTimeout( () => {
                 text.innerHTML = '';
             }, 2000);
         }

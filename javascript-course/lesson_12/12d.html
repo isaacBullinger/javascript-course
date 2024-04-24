@@ -6,16 +6,18 @@
     <title>12d</title>
 </head>
 <body>
-    <button class="js-button" onclick="
-        changeFinish();
-        ">Start</button>
+    <button class="js-button">Start</button>
     <script>
+        
+        document.querySelector('.js-button')
+            .addEventListener('click', () => changeFinish());
+
         function changeFinish() {
             button = document.querySelector('.js-button');
 
             button.innerHTML = 'Loading...';
 
-            setTimeout(function() {
+            setTimeout( () => {
                 button.innerHTML = 'Finished!';
             }, 1000);
         }

@@ -6,12 +6,13 @@
     <title>12c</title>
 </head>
 <body>
-    <button class="js-button" onclick="
-        changeFinish();
-        ">Start</button>
+    <button class="js-button">Start</button>
     <script>
+        document.querySelector('.js-button')
+            .addEventListener('click', () => changeFinish());
+
         function changeFinish() {
-            setTimeout(function() {
+            setTimeout( () => {
                 document.querySelector('.js-button').innerHTML = 'Finished!';
             }, 1000);
         }

@@ -31,11 +31,18 @@ function autoPlay() {
             playGame(playerMove);
         }, 1000)
         isAutoPlaying = true;
+        document.querySelector('.js-auto-play-button')
+            .innerHTML = 'Stop Playing';
     } else {
         clearInterval(intervalId);
         isAutoPlaying = false;
+        document.querySelector('.js-auto-play-button')
+            .innerHTML = 'Auto Play';
     }
 }
+
+document.querySelector('.js-auto-play-button')
+    .addEventListener('click', () => autoPlay());
 
 document.querySelector('.js-rock-button')
     .addEventListener('click', () => {
@@ -59,6 +66,10 @@ document.body.addEventListener('keydown', (event) => {
         playGame('paper');
     } else if (event.key === 's') {
         playGame('scissors');
+    } else if (event.key === 'a') {
+        autoPlay();
+    } else if (event.key === 'Backspace') {
+        displayConfirmation();
     }
 });
 
@@ -113,6 +124,49 @@ function playGame(playerMove) {
 <img src="images/${playerMove}-emoji.png" class="move-icon">
 <img src="images/${computerMove}-emoji.png" class="move-icon">
 Computer`;
+}
+
+document.querySelector('.js-reset-score-button')
+    .addEventListener('click', () => displayConfirmation());
+
+document.querySelector('.js-yes')
+    .addEventListener('click', () => resetScore());
+
+function displayConfirmation() {
+    document.querySelector('.js-confirmation').innerHTML = `
+    Are you sure you want to reset the score?
+    <button class="js-yes reset-confirm">
+    Yes
+    </button>
+    
+    <button class="js-no reset-confirm">
+    No
+    </button>`;
+
+    document.querySelector('.js-yes')
+        .addEventListener('click', () => {
+            resetScore();
+            hideResetConfirmation();
+        });
+    
+    document.querySelector('.js-no')
+        .addEventListener('click', () => {
+            hideResetConfirmation();
+        });
+}
+
+function hideResetConfirmation() {
+    document.querySelector('.js-confirmation')
+        .innerHTML = ``;
+}
+
+function resetScore() {
+    displayConfirmation();
+    score.wins = 0;
+    score.losses = 0;
+    score.ties = 0;
+    localStorage.removeItem('score');
+    updateScoreElement();
 }
 
 function updateScoreElement() {

@@ -13,7 +13,7 @@
         changeTitle('(2) New messages');
 
         function changeTitle (text) {
-            setInterval(function() {
+            setInterval( () => {
                 if (document.title === titleText) {
                     title.innerHTML = text;
                 } else {

@@ -6,14 +6,17 @@
     <title>12f</title>
 </head>
 <body>
-    <button onclick="
-        display('Added');
-    ">Add to cart</button>
+    <button class="js-button">
+        Add to cart
+    </button>
 
     <p class="js-message"></p>
 
     <script>
         let timeOutId;
+
+        document.querySelector('.js-button')
+            .addEventListener('click', () => display('Added'));
 
         function display(message) {
             const text = document.querySelector('.js-message');
@@ -21,7 +24,7 @@
 
             clearTimeout(timeOutId);
 
-            timeOutId = setTimeout(function() {
+            timeOutId = setTimeout( () => {
                 text.innerHTML = '';
             }, 2000);
 

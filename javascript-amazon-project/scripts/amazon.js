@@ -1,4 +1,4 @@
-import { cart } from '../data/cart.js';
+import {cart} from '../data/cart.js';
 import { products } from '../data/products.js';
 
 let productsHTML = '';
@@ -62,53 +62,38 @@ document.querySelector('.js-products-grid')
 
 const addMessageTimeouts = {};
 
+function updateCartQuantity(productId) {
+    let cartQuantity = 0;
+    
+    cart.forEach((cartItem) => {
+        cartQuantity += cartItem.quantity;
+    });
+
+    document.querySelector('.js-cart-quantity')
+        .innerHTML = cartQuantity;
+
+    const added = document.querySelector(`.js-added-to-cart-${productId}`
+    );
+
+    added.classList.add('added-message-toggled');
+
+    const lastTimeoutId = addMessageTimeouts[productId];
+    if (lastTimeoutId) {
+        clearTimeout(lastTimeoutId);
+    };
+
+    const timeoutId = setTimeout(() => {
+        added.classList.remove('added-message-toggled');
+    }, 2000);
+
+    addMessageTimeouts[productId] = timeoutId;
+};
+
 document.querySelectorAll('.js-add-to-cart')
     .forEach((button) => {
         button.addEventListener('click', () => {
             const {productId} = button.dataset;
-
-            let matchingItem;
-
-            cart.forEach((item) => {
-                if (productId === item.productId) {
-                    matchingItem = item;
-                }
-            })
-
-            const quantity = Number(document.querySelector(`.js-quantity-selector-${productId}`).value)
-
-            if (matchingItem) {
-                matchingItem.quantity += quantity;
-            } else {
-                cart.push({
-                    productId,
-                    quantity
-                });
-            }
-
-            let cartQuantity = 0;
-            
-            cart.forEach((item) => {
-                cartQuantity += item.quantity;
-            });
-
-            document.querySelector('.js-cart-quantity')
-                .innerHTML = cartQuantity;
-
-            const added = document.querySelector(`.js-added-to-cart-${productId}`
-            );
-
-            added.classList.add('added-message-toggled');
-
-			const lastTimeoutId = addMessageTimeouts[productId];
-			if (lastTimeoutId) {
-				clearTimeout(lastTimeoutId);
-			}
-
-			const timeoutId = setTimeout(() => {
-                added.classList.remove('added-message-toggled');
-            }, 2000);
-
-			addMessageTimeouts[productId] = timeoutId
+            addToCart(productId);
+            updateCartQuantity(productId);
         });
     });

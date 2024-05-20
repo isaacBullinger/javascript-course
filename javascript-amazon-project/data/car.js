@@ -81,6 +81,7 @@ const raceCar = new RaceCar({
 
 console.log(car1);
 console.log(car2);
+console.log(raceCar);
 
 car1.openTrunk();
 car1.go();

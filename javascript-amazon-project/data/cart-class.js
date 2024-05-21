@@ -1,4 +1,4 @@
-class Cart {
+export class Cart {
     cartItems;
     #localStorageKey;
     
@@ -36,7 +36,9 @@ class Cart {
             }
         });
 
-        const quantity = Number(document.querySelector(`.js-quantity-selector-${productId}`)).value;
+        const quantityElement = document.querySelector(`.js-quantity-selector-${productId}`);
+        const quantity = quantityElement ? Number(quantityElement.value) : 1;
+
 
         if (matchingItem) {
             matchingItem.quantity += quantity;
@@ -112,7 +114,7 @@ class Cart {
     }
 };
 
-const cart = new Cart('cart-oop');
+export const cart = new Cart('cart-oop');
 const businessCart = new Cart('cart-business');
 
 console.log(cart);

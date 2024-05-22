@@ -55,11 +55,11 @@ class RaceCar extends Car {
     }
 
     openTrunk() {
-        console.log('No trunk')
+        // console.log('No trunk')
     }
 
     closeTrunk() {
-        console.log('No trunk')
+        // console.log('No trunk')
     }
 }
 
@@ -79,9 +79,9 @@ const raceCar = new RaceCar({
     acceleration: 20
 });
 
-console.log(car1);
-console.log(car2);
-console.log(raceCar);
+// console.log(car1);
+// console.log(car2);
+// console.log(raceCar);
 
 car1.openTrunk();
 car1.go();
@@ -101,6 +101,6 @@ raceCar.go();
 raceCar.go();
 raceCar.brake();
 
-car1.displayInfo();
-car2.displayInfo();
-raceCar.displayInfo();
+// car1.displayInfo();
+// car2.displayInfo();
+// raceCar.displayInfo();

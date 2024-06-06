@@ -31,7 +31,8 @@ export function addToCart(productId) {
         }
     });
 
-    const quantity = Number(document.querySelector(`.js-quantity-selector-${productId}`).value);
+    const quantityElement = document.querySelector(`.js-quantity-selector-${productId}`);
+    const quantity = quantityElement ? Number(quantityElement.value) : 1;
 
     if (matchingItem) {
         matchingItem.quantity += quantity;
